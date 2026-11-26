@@ -6,6 +6,8 @@ Realizzato da [Kiso Studio](https://www.kisostudio.it/).
 ## Struttura
 
 - `index.html` – il sito completo (una pagina, HTML + CSS + JS in un unico file)
+- `privacy.html` – Informativa privacy
+- `cookie.html` – Cookie policy (il sito non usa cookie)
 - `img/` – favicon, icone e immagine di anteprima per i social
 
 ## Pubblicazione con GitHub Pages
@@ -27,4 +29,3 @@ Realizzato da [Kiso Studio](https://www.kisostudio.it/).
 ## Da completare
 
 - Foto del negozio (sezione "La nostra storia")
-- Pagine Informativa privacy e Cookie policy (link nel piè di pagina)
