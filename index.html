@@ -113,7 +113,13 @@ nav a:hover{color:var(--gold)}
 .cat h3{font-size:20px;margin-bottom:4px}
 .cat p{font-size:15px;color:rgba(243,234,215,.72);line-height:1.45}
 @media (max-width:900px){.cats{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:420px){.cats{grid-template-columns:1fr}}
+@media (max-width:600px){
+  .cats{gap:10px}
+  .cat{padding:14px 14px 16px;border-radius:14px}
+  .cat svg{width:26px;height:26px;margin-bottom:8px}
+  .cat h3{font-size:17px;margin-bottom:2px}
+  .cat p{font-size:13px;line-height:1.4}
+}
 .metals{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px;align-items:center}
 .metals>span:first-child{font-size:15px;color:rgba(243,234,215,.75);margin-right:6px}
 .chip{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 16px;font-size:15px;background:rgba(243,234,215,.08)}
@@ -139,7 +145,11 @@ nav a:hover{color:var(--gold)}
 .repgal img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:18px;background:var(--cream2)}
 @media (max-width:760px){.rep,.howto{grid-template-columns:1fr}}
 @media (max-width:600px){.repgal{grid-template-columns:1fr}}
-@media (max-width:480px){.svc{grid-template-columns:1fr}}
+@media (max-width:600px){
+  .svc{gap:0 16px}
+  .svc li{gap:9px;padding:9px 0;font-size:15px;line-height:1.35}
+  .svc li::before{width:6px;height:6px}
+}
 
 .rev{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(28px,5vw,64px);align-items:center}
 .score{font:500 clamp(72px,9vw,104px)/1 'Playfair Display',serif;color:var(--gold)}
