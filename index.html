@@ -135,7 +135,10 @@ nav a:hover{color:var(--gold)}
 .how{background:#fff;border-radius:16px;padding:20px 22px;box-shadow:0 1px 0 rgba(28,42,68,.06)}
 .how b{display:block;font:500 19px 'Playfair Display',serif;margin-bottom:4px}
 .how p{font-size:15px;color:var(--soft);line-height:1.5}
+.repgal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:clamp(40px,6vw,64px)}
+.repgal img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:18px;background:var(--cream2)}
 @media (max-width:760px){.rep,.howto{grid-template-columns:1fr}}
+@media (max-width:600px){.repgal{grid-template-columns:1fr}}
 @media (max-width:480px){.svc{grid-template-columns:1fr}}
 
 .rev{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(28px,5vw,64px);align-items:center}
@@ -334,6 +337,10 @@ footer{background:#141F35;color:rgba(243,234,215,.78);padding:56px 0 32px;font-s
       </div>
     </div>
     <ul class="svc" id="svc"></ul>
+  </div>
+  <div class="wrap repgal">
+    <img src="img/riparazioni-1.jpg" width="999" height="724" loading="lazy" decoding="async" alt="Mani di un orafo al banco che lavorano un gioiello con una pinza">
+    <img src="img/riparazioni-2.jpg" width="999" height="784" loading="lazy" decoding="async" alt="Orafo al banco da lavoro che rifinisce un anello con un utensile">
   </div>
 </section>
 
