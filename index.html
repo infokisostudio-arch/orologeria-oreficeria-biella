@@ -142,7 +142,8 @@ nav a:hover{color:var(--gold)}
 .bc-body a:hover{color:var(--navy)}
 .bc-body a span{font-size:20px;line-height:1}
 @media (max-width:600px){
-  .brands{grid-template-columns:1fr;gap:14px}
+  .brands{display:flex;gap:12px;margin-inline:calc(-1 * max(5vw,18px));padding-inline:max(5vw,18px);scroll-padding-inline:max(5vw,18px)}
+  .brands>.brand-card{flex:0 0 84%}
   .brand-card img{aspect-ratio:16/10}
   .bc-body{padding:14px 16px 10px}
   .bc-body h3{font-size:21px;margin-bottom:2px}
@@ -164,7 +165,19 @@ nav a:hover{color:var(--gold)}
 .repgal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:clamp(40px,6vw,64px)}
 .repgal img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:18px;background:var(--cream2)}
 @media (max-width:760px){.rep,.howto{grid-template-columns:1fr}}
-@media (max-width:600px){.repgal{grid-template-columns:1fr}}
+@media (max-width:600px){
+  .repgal{display:flex;gap:12px;scroll-padding-inline:max(5vw,18px)}
+  .repgal>img{flex:0 0 84%;width:84%}
+  /* caroselli orizzontali solo su telefono */
+  .brands,.repgal{overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;padding-bottom:4px}
+  .brands::-webkit-scrollbar,.repgal::-webkit-scrollbar{display:none}
+  .brands>*,.repgal>*{scroll-snap-align:start}
+  .snapdots{display:flex;justify-content:center;gap:2px;margin-top:6px}
+  .snapdots button{width:28px;height:28px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
+  .snapdots button::before{content:"";width:8px;height:8px;border-radius:999px;background:rgba(28,42,68,.22);transition:background .2s,width .2s}
+  .snapdots button[aria-current="true"]::before{background:var(--gold);width:22px}
+}
+@media (min-width:601px){.snapdots{display:none}}
 @media (max-width:600px){
   .svc{gap:0 16px}
   .svc li{gap:9px;padding:9px 0;font-size:15px;line-height:1.35}
@@ -509,6 +522,32 @@ footer{background:#141F35;color:rgba(243,234,215,.78);padding:56px 0 32px;font-s
   document.getElementById('prev').addEventListener('click', () => step(-1));
   document.getElementById('next').addEventListener('click', () => step(1));
   track.addEventListener('keydown', e => { if (e.key === 'ArrowRight') step(1); if (e.key === 'ArrowLeft') step(-1); });
+
+  // pallini per i caroselli orizzontali (visibili solo su telefono)
+  document.querySelectorAll('.brands, .repgal').forEach(sc => {
+    const items = [...sc.children];
+    if (items.length < 2) return;
+    const dots = document.createElement('div');
+    dots.className = 'snapdots';
+    dots.innerHTML = items.map((_, i) => `<button type="button" aria-label="Vai all'elemento ${i + 1} di ${items.length}"></button>`).join('');
+    sc.after(dots);
+    const btns = [...dots.children];
+    const pad = () => parseFloat(getComputedStyle(sc).scrollPaddingLeft) || 0;
+    const dx = el => el.getBoundingClientRect().left - sc.getBoundingClientRect().left - pad();
+    const update = () => {
+      let cur = 0, best = Infinity;
+      items.forEach((el, i) => { const d = Math.abs(dx(el)); if (d < best) { best = d; cur = i; } });
+      if (sc.scrollLeft + sc.clientWidth >= sc.scrollWidth - 2) cur = items.length - 1;
+      btns.forEach((b, i) => b.setAttribute('aria-current', i === cur));
+    };
+    btns.forEach((b, i) => b.addEventListener('click', () => {
+      btns.forEach((x, j) => x.setAttribute('aria-current', i === j));
+      sc.scrollTo({ left: sc.scrollLeft + dx(items[i]), behavior: 'smooth' });
+    }));
+    sc.addEventListener('scroll', update, { passive: true });
+    sc.addEventListener('scrollend', update);
+    update();
+  });
 
   const nav = document.getElementById('nav'), mb = document.getElementById('menuBtn');
   mb.addEventListener('click', () => { const o = nav.classList.toggle('open'); mb.setAttribute('aria-expanded', o); });
