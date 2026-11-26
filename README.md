@@ -8,6 +8,7 @@ Realizzato da [Kiso Studio](https://www.kisostudio.it/).
 - `index.html` – il sito completo (una pagina, HTML + CSS + JS in un unico file)
 - `privacy.html` – Informativa privacy
 - `cookie.html` – Cookie policy (il sito non usa cookie)
+- `fonts/` – font Jost e Playfair Display ospitati in locale (licenza SIL OFL 1.1), così il sito non contatta Google
 - `img/` – favicon, icone e immagine di anteprima per i social
 
 ## Pubblicazione con GitHub Pages
