@@ -130,27 +130,6 @@ nav a:hover{color:var(--gold)}
 .custom p{color:rgba(243,234,215,.8)}
 @media (max-width:760px){.custom{grid-template-columns:1fr}}
 
-/* marchi */
-.brands{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.brand-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 1px 0 rgba(28,42,68,.06);display:flex;flex-direction:column}
-.brand-card img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--cream2)}
-.brand-card img.top{object-position:50% 0}
-.bc-body{padding:22px 24px 24px}
-.bc-body h3{font-size:26px;margin-bottom:6px}
-.bc-body p{color:var(--soft);font-size:16px;line-height:1.5}
-.bc-body a{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-weight:500;color:var(--goldD);text-decoration:none;min-height:44px}
-.bc-body a:hover{color:var(--navy)}
-.bc-body a span{font-size:20px;line-height:1}
-@media (max-width:600px){
-  .brands{display:flex;gap:12px;margin-inline:calc(-1 * max(5vw,18px));padding-inline:max(5vw,18px);scroll-padding-inline:max(5vw,18px)}
-  .brands>.brand-card{flex:0 0 84%}
-  .brand-card img{aspect-ratio:16/10}
-  .bc-body{padding:14px 16px 10px}
-  .bc-body h3{font-size:21px;margin-bottom:2px}
-  .bc-body p{font-size:14px}
-  .bc-body a{margin-top:4px;font-size:15px}
-}
-
 /* riparazioni */
 .rep{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,80px);align-items:start}
 .rep h2{margin-bottom:22px}
@@ -162,22 +141,7 @@ nav a:hover{color:var(--gold)}
 .how{background:#fff;border-radius:16px;padding:20px 22px;box-shadow:0 1px 0 rgba(28,42,68,.06)}
 .how b{display:block;font:500 19px 'Playfair Display',serif;margin-bottom:4px}
 .how p{font-size:15px;color:var(--soft);line-height:1.5}
-.repgal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:clamp(40px,6vw,64px)}
-.repgal img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:18px;background:var(--cream2)}
 @media (max-width:760px){.rep,.howto{grid-template-columns:1fr}}
-@media (max-width:600px){
-  .repgal{display:flex;gap:12px;scroll-padding-inline:max(5vw,18px)}
-  .repgal>img{flex:0 0 84%;width:84%}
-  /* caroselli orizzontali solo su telefono */
-  .brands,.repgal{overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;padding-bottom:4px}
-  .brands::-webkit-scrollbar,.repgal::-webkit-scrollbar{display:none}
-  .brands>*,.repgal>*{scroll-snap-align:start}
-  .snapdots{display:flex;justify-content:center;gap:2px;margin-top:6px}
-  .snapdots button{width:28px;height:28px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
-  .snapdots button::before{content:"";width:8px;height:8px;border-radius:999px;background:rgba(28,42,68,.22);transition:background .2s,width .2s}
-  .snapdots button[aria-current="true"]::before{background:var(--gold);width:22px}
-}
-@media (min-width:601px){.snapdots{display:none}}
 @media (max-width:600px){
   .svc{gap:0 16px}
   .svc li{gap:9px;padding:9px 0;font-size:15px;line-height:1.35}
@@ -367,36 +331,6 @@ footer{background:#141F35;color:rgba(243,234,215,.78);padding:56px 0 32px;font-s
   </div>
 </section>
 
-<section class="band" id="marchi" style="background:var(--cream2)">
-  <div class="wrap">
-    <div class="head">
-      <div>
-        <div class="kicker">I nostri marchi</div>
-        <h2>Marchi che trovi in negozio</h2>
-      </div>
-      <p class="lead">Accanto alle nostre proposte, alcuni marchi scelti per qualità e stile. Vieni a vedere le collezioni o chiedici una disponibilità.</p>
-    </div>
-    <div class="brands">
-      <article class="brand-card">
-        <img src="img/brand-vagary.jpg" width="1169" height="666" loading="lazy" decoding="async" alt="Orologio automatico con quadrante blu e smartwatch color oro rosa Vagary">
-        <div class="bc-body">
-          <h3>Vagary</h3>
-          <p>Orologi e smartwatch dal design moderno, per uomo e donna.</p>
-          <a href="https://wa.me/393420462294?text=Buongiorno%2C%20vorrei%20informazioni%20sugli%20orologi%20Vagary">Chiedi informazioni<span>›</span></a>
-        </div>
-      </article>
-      <article class="brand-card">
-        <img class="top" src="img/brand-boccadamo.jpg" width="1146" height="1210" loading="lazy" decoding="async" alt="Modella con orecchini, collana e bracciale Boccadamo dorati con pietre verdi">
-        <div class="bc-body">
-          <h3>Boccadamo</h3>
-          <p>Gioielli italiani: collane, bracciali e orecchini dal carattere unico.</p>
-          <a href="https://wa.me/393420462294?text=Buongiorno%2C%20vorrei%20informazioni%20sui%20gioielli%20Boccadamo">Chiedi informazioni<span>›</span></a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
 <section class="band" id="riparazioni">
   <div class="wrap rep">
     <div>
@@ -410,10 +344,6 @@ footer{background:#141F35;color:rgba(243,234,215,.78);padding:56px 0 32px;font-s
       </div>
     </div>
     <ul class="svc" id="svc"></ul>
-  </div>
-  <div class="wrap repgal">
-    <img src="img/riparazioni-1.jpg" width="999" height="724" loading="lazy" decoding="async" alt="Mani di un orafo al banco che lavorano un gioiello con una pinza">
-    <img src="img/riparazioni-2.jpg" width="999" height="784" loading="lazy" decoding="async" alt="Orafo al banco da lavoro che rifinisce un anello con un utensile">
   </div>
 </section>
 
@@ -522,32 +452,6 @@ footer{background:#141F35;color:rgba(243,234,215,.78);padding:56px 0 32px;font-s
   document.getElementById('prev').addEventListener('click', () => step(-1));
   document.getElementById('next').addEventListener('click', () => step(1));
   track.addEventListener('keydown', e => { if (e.key === 'ArrowRight') step(1); if (e.key === 'ArrowLeft') step(-1); });
-
-  // pallini per i caroselli orizzontali (visibili solo su telefono)
-  document.querySelectorAll('.brands, .repgal').forEach(sc => {
-    const items = [...sc.children];
-    if (items.length < 2) return;
-    const dots = document.createElement('div');
-    dots.className = 'snapdots';
-    dots.innerHTML = items.map((_, i) => `<button type="button" aria-label="Vai all'elemento ${i + 1} di ${items.length}"></button>`).join('');
-    sc.after(dots);
-    const btns = [...dots.children];
-    const pad = () => parseFloat(getComputedStyle(sc).scrollPaddingLeft) || 0;
-    const dx = el => el.getBoundingClientRect().left - sc.getBoundingClientRect().left - pad();
-    const update = () => {
-      let cur = 0, best = Infinity;
-      items.forEach((el, i) => { const d = Math.abs(dx(el)); if (d < best) { best = d; cur = i; } });
-      if (sc.scrollLeft + sc.clientWidth >= sc.scrollWidth - 2) cur = items.length - 1;
-      btns.forEach((b, i) => b.setAttribute('aria-current', i === cur));
-    };
-    btns.forEach((b, i) => b.addEventListener('click', () => {
-      btns.forEach((x, j) => x.setAttribute('aria-current', i === j));
-      sc.scrollTo({ left: sc.scrollLeft + dx(items[i]), behavior: 'smooth' });
-    }));
-    sc.addEventListener('scroll', update, { passive: true });
-    sc.addEventListener('scrollend', update);
-    update();
-  });
 
   const nav = document.getElementById('nav'), mb = document.getElementById('menuBtn');
   mb.addEventListener('click', () => { const o = nav.classList.toggle('open'); mb.setAttribute('aria-expanded', o); });
