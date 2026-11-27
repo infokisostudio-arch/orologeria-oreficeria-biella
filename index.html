@@ -187,6 +187,70 @@ a.row:hover{box-shadow:0 0 0 1.5px var(--gold)}
 .wacard .note{font-size:14px;color:rgba(243,234,215,.65);margin-top:18px}
 @media (max-width:760px){.contact{grid-template-columns:1fr}}
 
+/* orari */
+.hours{background:#fff;border-radius:16px;padding:18px 20px 16px;margin-top:14px}
+.hours-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:10px}
+.hours-head .ic{width:44px;height:44px;border-radius:12px;background:var(--navy);color:var(--gold);display:grid;place-items:center;flex:none}
+.hours-head .ic svg{width:20px;height:20px}
+.hours-head h3{font-size:22px;margin-right:auto}
+.status{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:6px 12px 6px 10px;font-size:14px;font-weight:500;line-height:1.2;background:#F1E9E6;color:#8C2F1F}
+.status i{width:9px;height:9px;border-radius:50%;background:#C0392B;flex:none}
+.status.open{background:#E5F2E7;color:#1E6B34}
+.status.open i{background:#2E9E4F;box-shadow:0 0 0 0 rgba(46,158,79,.5);animation:pulse 2s infinite}
+.status.soon{background:#FBF1DD;color:#7A5410}
+.status.soon i{background:#D99A1E}
+@keyframes pulse{70%{box-shadow:0 0 0 7px rgba(46,158,79,0)}100%{box-shadow:0 0 0 0 rgba(46,158,79,0)}}
+.days{list-style:none;margin:0;padding:0}
+.days li{display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border-radius:10px;font-size:15px}
+.days li+li{border-top:1px solid rgba(28,42,68,.08)}
+.days li span:last-child{text-align:right;color:var(--soft);font-variant-numeric:tabular-nums}
+.days li em{font-style:normal}
+.days li[data-d="0"] span:last-child{color:#8C2F1F}
+.days li.today{background:var(--cream);border-top-color:transparent;font-weight:500}
+.days li.today+li{border-top-color:transparent}
+.days li.today span:last-child{color:var(--ink)}
+.hours-note{font-size:13px;color:var(--soft);margin-top:8px;padding:0 10px}
+
+/* mappa */
+.map{margin-top:clamp(32px,5vw,56px);border-radius:22px;overflow:hidden;height:clamp(300px,42vw,440px);background:radial-gradient(120% 90% at 30% 20%,#2C4A3B 0%,#1E3328 35%,#16243A 100%);position:relative}
+.map iframe{display:block;width:100%;height:100%;border:0}
+.map-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;padding:24px;color:var(--cream)}
+.map-ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(35deg,rgba(255,255,255,.035) 0 2px,transparent 2px 46px),repeating-linear-gradient(-55deg,rgba(255,255,255,.03) 0 2px,transparent 2px 62px);pointer-events:none}
+.map-ph>*{position:relative}
+.map-ph .pin{width:42px;height:42px;color:var(--gold);margin-bottom:4px}
+.map-ph strong{font:500 clamp(20px,2.6vw,26px)/1.2 'Playfair Display',serif}
+.map-ph p{font-size:14px;color:rgba(243,234,215,.72);max-width:40ch}
+.map-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:10px}
+
+@media (max-width:600px){
+  .info{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:20px}
+  .info .row{flex-direction:column;align-items:flex-start;gap:8px;padding:12px 14px;min-height:0;border-radius:14px}
+  .info .row:nth-child(n+3){grid-column:1/-1;flex-direction:row;align-items:center;gap:12px}
+  .row .ic{width:36px;height:36px;border-radius:10px}
+  .row .ic svg{width:18px;height:18px}
+  .row small{font-size:12px}
+  .row strong{font-size:15px}
+  .row.email strong{word-break:break-all}
+  .hours{padding:14px 12px 12px;margin-top:10px;border-radius:14px}
+  .hours-head{gap:10px;margin-bottom:6px}
+  .hours-head .ic{width:36px;height:36px;border-radius:10px}
+  .hours-head h3{font-size:19px}
+  .status{font-size:13px;padding:5px 10px 5px 9px}
+  .days li{padding:6px 8px;font-size:14px}
+  .hours-note{font-size:12px;padding:0 8px}
+  .wacard{border-radius:18px;padding:20px 16px}
+  .wacard .ic{width:44px;height:44px;border-radius:12px;margin-bottom:12px}
+  .wacard .ic svg{width:24px;height:24px}
+  .wacard h3{font-size:22px;margin-bottom:6px}
+  .wacard>p{font-size:15px;margin-bottom:14px}
+  .quick{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .quick a{min-height:52px;padding:10px 12px;font-size:14px;line-height:1.25;border-radius:12px}
+  .quick a span{font-size:18px}
+  .wacard .note{font-size:13px;margin-top:12px}
+  .map{height:300px;border-radius:18px}
+  .map-btns .btn{width:100%}
+}
+
 /* footer */
 footer{background:#141F35;color:rgba(243,234,215,.78);padding:56px 0 32px;font-size:15px}
 .foot{display:grid;grid-template-columns:minmax(0,1.2fr) repeat(2,minmax(0,1fr));gap:32px}
@@ -374,7 +438,23 @@ footer{background:#141F35;color:rgba(243,234,215,.78);padding:56px 0 32px;font-s
         <a class="row" href="tel:+390399943374"><span class="ic"><svg><use href="#i-phone"/></svg></span><span><small>Negozio</small><strong>039 994 3374</strong></span></a>
         <a class="row email" href="mailto:oreficeriabiella.air@gmail.com"><span class="ic"><svg><use href="#i-mail"/></svg></span><span><small>Email</small><strong>oreficeriabiella.air@gmail.com</strong></span></a>
         <a class="row" href="https://www.google.com/maps/search/?api=1&amp;query=Orologeria+Oreficeria+Biella+Via+San+Francesco+6+Airuno"><span class="ic"><svg><use href="#i-pin"/></svg></span><span><small>Dove siamo</small><strong>Via San Francesco 6, Airuno (LC)</strong></span></a>
-        <div class="row"><span class="ic"><svg><use href="#i-clock"/></svg></span><span><small>Orari</small><strong>Lunedì 15:30–19:00</strong><br><strong>Mar–Sab 9:00–12:30 · 15:30–19:00</strong></span></div>
+      </div>
+      <div class="hours" id="orari">
+        <div class="hours-head">
+          <span class="ic"><svg><use href="#i-clock"/></svg></span>
+          <h3>Orari</h3>
+          <span class="status" id="status" hidden><i></i><span></span></span>
+        </div>
+        <ul class="days" id="days">
+          <li data-d="1"><span>Lunedì</span><span>15:30–19:00</span></li>
+          <li data-d="2"><span>Martedì</span><span>9:00–12:30 · 15:30–19:00</span></li>
+          <li data-d="3"><span>Mercoledì</span><span>9:00–12:30 · 15:30–19:00</span></li>
+          <li data-d="4"><span>Giovedì</span><span>9:00–12:30 · 15:30–19:00</span></li>
+          <li data-d="5"><span>Venerdì</span><span>9:00–12:30 · 15:30–19:00</span></li>
+          <li data-d="6"><span>Sabato</span><span>9:00–12:30 · 15:30–19:00</span></li>
+          <li data-d="0"><span>Domenica</span><span><em>Chiuso</em></span></li>
+        </ul>
+        <p class="hours-note">Nei giorni festivi gli orari possono variare.</p>
       </div>
     </div>
 
@@ -389,6 +469,20 @@ footer{background:#141F35;color:rgba(243,234,215,.78);padding:56px 0 32px;font-s
         <a href="https://wa.me/393420462294">Altro<span>›</span></a>
       </div>
       <p class="note">Puoi anche inviarci una foto dell'oggetto da riparare: ci aiuta a darti subito un'idea.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="map" id="mappa">
+      <div class="map-ph">
+        <svg class="pin"><use href="#i-pin"/></svg>
+        <strong>Via San Francesco 6, 23881 Airuno (LC)</strong>
+        <p>La mappa viene caricata da Google solo se scegli di aprirla.</p>
+        <div class="map-btns">
+          <button type="button" class="btn btn-gold" id="mapLoad">Mostra la mappa satellitare</button>
+          <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Orologeria+Oreficeria+Biella+Via+San+Francesco+6+Airuno" target="_blank" rel="noopener">Apri in Google Maps</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -452,6 +546,49 @@ footer{background:#141F35;color:rgba(243,234,215,.78);padding:56px 0 32px;font-s
   document.getElementById('prev').addEventListener('click', () => step(-1));
   document.getElementById('next').addEventListener('click', () => step(1));
   track.addEventListener('keydown', e => { if (e.key === 'ArrowRight') step(1); if (e.key === 'ArrowLeft') step(-1); });
+
+  // orari e indicatore aperto/chiuso (ora italiana)
+  const HOURS = { 0: [], 1: [[930, 1140]], 2: [[540, 750], [930, 1140]], 3: [[540, 750], [930, 1140]], 4: [[540, 750], [930, 1140]], 5: [[540, 750], [930, 1140]], 6: [[540, 750], [930, 1140]] };
+  const DAYS = ['domenica', 'lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato'];
+  const hhmm = m => `${Math.floor(m / 60)}:${String(m % 60).padStart(2, '0')}`;
+  const romeNow = () => {
+    const p = Object.fromEntries(new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Rome', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date()).map(x => [x.type, x.value]));
+    return { d: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(p.weekday), m: +p.hour * 60 + +p.minute };
+  };
+  const status = document.getElementById('status');
+  const renderStatus = () => {
+    const { d, m } = romeNow();
+    document.querySelectorAll('#days li').forEach(li => li.classList.toggle('today', +li.dataset.d === d));
+    const slot = HOURS[d].find(([a, b]) => m >= a && m < b);
+    let cls, txt;
+    if (slot) {
+      const closing = slot[1] - m <= 30;
+      cls = closing ? 'soon' : 'open';
+      txt = closing ? `Chiude presto · alle ${hhmm(slot[1])}` : `Aperto ora · chiude alle ${hhmm(slot[1])}`;
+    } else {
+      cls = '';
+      const later = HOURS[d].find(([a]) => a > m);
+      if (later) txt = `Chiuso · apre alle ${hhmm(later[0])}`;
+      else {
+        for (let i = 1; i <= 7; i++) {
+          const nd = (d + i) % 7;
+          if (HOURS[nd].length) { txt = `Chiuso · apre ${i === 1 ? 'domani' : DAYS[nd]} alle ${hhmm(HOURS[nd][0][0])}`; break; }
+        }
+      }
+    }
+    status.className = 'status ' + cls;
+    status.lastElementChild.textContent = txt;
+    status.hidden = false;
+  };
+  renderStatus();
+  setInterval(renderStatus, 30000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) renderStatus(); });
+
+  // mappa satellitare: caricata da Google solo su richiesta
+  document.getElementById('mapLoad').addEventListener('click', () => {
+    const map = document.getElementById('mappa');
+    map.innerHTML = '<iframe title="Mappa satellitare: Orologeria Oreficeria Biella, Via San Francesco 6, Airuno" src="https://maps.google.com/maps?q=Via%20San%20Francesco%206%2C%2023881%20Airuno%20LC&amp;t=k&amp;z=18&amp;hl=it&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>';
+  });
 
   const nav = document.getElementById('nav'), mb = document.getElementById('menuBtn');
   mb.addEventListener('click', () => { const o = nav.classList.toggle('open'); mb.setAttribute('aria-expanded', o); });
